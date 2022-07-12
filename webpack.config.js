@@ -16,11 +16,17 @@ module.exports = {
     filename: '[name].js'
   },
 
+  resolve: {
+    // modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+    extensions: ['.js', '.jsx', '.ts', '.tsx']
+  },
+
   module: {
     rules: [
       // JS
       {
-        test: /\.js$/,
+        test: /\.(js|jsx|ts|tsx)$/,
+        exclude: /node_modules/,
         use: ['babel-loader']
       },
       // CSS
